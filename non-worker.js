@@ -7,13 +7,13 @@ const connection = mysql.createConnection({
     database: 'workertest',
     port:3366
 })
+// make connection to database
+connection.connect()
 // define start time
 const startTime = performance.now()
-// make connetion to database
-connection.connect()
 // looping for insert 10.000 data on table
-for(let i=0; i<=10000; i++){
-    const sql = `INSERT INTO workerdata (data) VALUES ('data-${i}')`;
+for(let i=1; i<=10000; i++){
+    const sql = `INSERT INTO workerdata (data) VALUES ('data-non-worker-${i}')`;
     connection.query(sql, function(err, result) {
         if (err) throw err;
         //print execution time

@@ -16,7 +16,7 @@ function insertWithWorker(workerData) {
 // define start time
 const startTime = performance.now()
 // trying to create 10.000 threads
-for (let i = 0; i <= 10000; i++) {
+for (let i = 1; i <= 10000; i++) {
     //insert table with worker
-    insertWithWorker([i,startTime]).then();
+    insertWithWorker({i,startTime}).then();
 }
